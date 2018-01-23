@@ -3,9 +3,9 @@ var app = express();
 var fs = require('fs');
 
 var results = [];
-var file = fs.readFileSync("yardsale.json");
-var data = JSON.parse(file);
-console.log(data);
+var data = fs.readFileSync("yardsale.json");
+var words = JSON.parse(data);
+console.log(words);
 
 
 console.log("sever is starting");
