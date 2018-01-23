@@ -1,4 +1,4 @@
-{ "title": "Maria's Yard Sale",
+[{ "title": "Marias Yard Sale",
   "address":{
     "lat": 40.674437,
     "lon": -73.968082,
@@ -7,9 +7,39 @@
     "state": "New York", 
     "zipCode": 11238
     },
- "items":[
-        'chairs',
-	    'pants',
-	    'lamp'
-        ],   
+ "items":["chairs",
+	    "pants",
+	    "lamp"
+        ]   
+},
+
+{ "title": "Joeys Yard Sale",
+  "address":{
+    "lat": 40.873318, 
+    "lon": -73.894139,
+    "street": "285 Saint Anns Place", 
+    "city": "Brooklyn",
+    "state": "New York", 
+    "zipCode": 11238
+    },
+ "items":["chairs",
+	    "books",
+	    "lamp"
+        ]   
+},
+ 
+{ "title": "Tyreiks Yard Sale",
+  "address":{
+    "lat": 40.782865,
+    "lon":  -73.965355,
+    "street": "285 Saint Anns Place", 
+    "city": "Brooklyn",
+    "state": "New York", 
+    "zipCode": 11238
+    },
+ "items":["chairs",
+	    "tables",
+	    "lamp"
+        ]   
 }
+]

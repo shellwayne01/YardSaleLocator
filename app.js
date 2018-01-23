@@ -5,7 +5,7 @@ var fs = require('fs');
 var results = [];
 var data = fs.readFileSync("yardsale.json");
 var words = JSON.parse(data);
-console.log(data);
+console.log(words);
 
 
 console.log("sever is starting");
