@@ -25,8 +25,8 @@
     },
  "items":[
         "chairs",
-	    "pants",
-	    "lamp"
+	    "shirts",
+	    "buttons"
         ]  
 },
 
@@ -41,8 +41,8 @@
     },
  "items":[
         "chairs",
-	    "pants",
-	    "lamp"
+	    "tables",
+	    "shoes"
         ]  
 },
 
@@ -58,6 +58,6 @@
  "items":[
         "chairs",
 	    "pants",
-	    "lamp"
+	    "shoes"
         ]  
 }]
