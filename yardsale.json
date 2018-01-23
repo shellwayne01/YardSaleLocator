@@ -1,0 +1,15 @@
+{ "title": "Maria's Yard Sale",
+  "address":{
+    "lat": 40.674437,
+    "lon": -73.968082,
+    "street": "285 Saint Anns Place", 
+    "city": "Brooklyn",
+    "state": "New York", 
+    "zipCode": 11238
+    },
+ "items":[
+        'chairs',
+	    'pants',
+	    'lamp'
+        ],   
+}
