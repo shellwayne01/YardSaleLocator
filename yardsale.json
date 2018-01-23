@@ -1,15 +1,64 @@
-{ "title": "Maria's Yard Sale",
+[{ "title": "Marias Yard Sale",
   "address":{
-    "lat": 40.674437,
-    "lon": -73.968082,
-    "street": "285 Saint Anns Place", 
-    "city": "Brooklyn",
-    "state": "New York", 
-    "zipCode": 11238
+    "lat": 40.872994,
+    "lon": -73.902004,
+    "street": "2823 Sedgwick Ave", 
+    "city": "Bronx",
+    "state": "NY", 
+    "zipCode": 10468
     },
  "items":[
-        'chairs',
-	    'pants',
-	    'lamp'
-        ],   
+        "chairs",
+	    "pants",
+	    "lamp"
+        ]  
+},
+
+{ "title": "Joeys Yard Sale",
+  "address":{
+    "lat": 40.876466,
+    "lon": -73.88679,
+    "street": "Villa Ave", 
+    "city": "Bronx",
+    "state": "NY", 
+    "zipCode": 10468
+    },
+ "items":[
+        "chairs",
+	    "pants",
+	    "lamp"
+        ]  
+},
+
+{ "title": "Tyrieks Yard Sale",
+  "address":{
+    "lat": 40.864978,
+    "lon": -73.899493,
+    "street": "Jerome Ave", 
+    "city": "Bronx",
+    "state": "NY", 
+    "zipCode": 10468
+    },
+ "items":[
+        "chairs",
+	    "pants",
+	    "lamp"
+        ]  
+},
+
+{ "title": "Annabelles Yard Sale",
+  "address":{
+    "lat": 40.881722,
+    "lon": -73.907561,
+    "street": "Tibbett Ave", 
+    "city": "Bronx",
+    "state": "NY", 
+    "zipCode": 10463
+    },
+ "items":[
+        "chairs",
+	    "pants",
+	    "lamp"
+        ]  
 }
+]

@@ -3,8 +3,8 @@ var app = express();
 var fs = require('fs');
 
 var results = [];
-var data = fs.readFileSync("yardsale.json");
-var words = JSON.parse(data);
+var file = fs.readFileSync("yardsale.json");
+var data = JSON.parse(file);
 console.log(data);
 
 
