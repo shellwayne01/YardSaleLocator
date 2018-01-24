@@ -5,10 +5,20 @@
     </head>
     
     <body>
-<!--        Insert Google Maps API-->
+
+        <!--Insert Google Maps API here-->
         
+        <form action="/yardsale/searchResults" method= "post">
+        <label>Enter an item you wish you buy at a yard sale.</label>
         <input type="text" id="userItem" name="userInput"/>
         <input type="submit" id="btn" name="searchBtn"/>
+        </form>
+       
+        
+        <!-- JSON data we can refer to is visible for now -->
+        <p id="quote"><%= sales%></p>
+    
     </body>
     
+
 </html>

@@ -1,0 +1,22 @@
+div.YardSale{
+    background-color: gainsboro;
+    width:100%;
+    border-bottom: 5px solid black;
+}
+
+p.Title{
+    color: blue;
+}
+
+/*
+.YSimg{
+}
+*/
+
+p.Address{
+    color: blue;
+}
+
+p.Items{
+    background-color: yellow;
+}

@@ -1,10 +1,41 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title></title>
+        <title>Yard Sales</title>
+        <link href="/assets/results.css" rel="stylesheet" type="text/css">
     </head>
     
     <body>
+        
+        <!--Form-->
+        <form action="/yardsale/searchResults" method= "post">
+        <input type="text" id="userItem" name="userInput"/>
+        <input type="submit" id="btn" name="searchBtn" value="Search"/>
+        </form>
+        
+        <!--Home button-->
+        <form action="/home" method= "GET">
+        <input type="submit" id="btn" name="searchBtn" value="Home"/>
+        </form>
+        
+        <!--Yard Sales for searched item -->
+        <p>Desired item was <strong>found</strong> at the following yard sales: <%= sales%></p>
+        
+        
+        <!--Blueprint for results -->
+        
+        <% for(i=0; i< sales.length; i++){ %>
+        <div class="YardSale">
+            <p class="Title"> <%=sales[i]%>
+            </p>
+            <img class = "YSimg" src="https://img.thrfun.com/img/003/847/yard_sale_ts.jpg"/>
+            <p class="Address"> Address
+            </p>
+            <p class="Items"> Items
+            </p>
+        </div>
+        <% } %>
+        
     </body>
     
 </html>
