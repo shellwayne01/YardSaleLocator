@@ -1,4 +1,4 @@
-[{ "title": "Marias Yard Sale",
+[{ "title": " Maria's Yard Sale",
   "address":{
     "lat": 40.872994,
     "lon": -73.902004,
@@ -11,10 +11,12 @@
         "chairs",
 	    "pants",
 	    "lamp"
-        ]  
+        ],
+  "date": "24 January 2018",
+  "Jdate": 20180124 
 },
 
-{ "title": "Joeys Yard Sale",
+{ "title": " Joey's Yard Sale",
   "address":{
     "lat": 40.876466,
     "lon": -73.88679,
@@ -27,10 +29,12 @@
         "chairs",
 	    "shirts",
 	    "buttons"
-        ]  
+        ],
+ "date": "25 January 2018",
+ "Jdate": 20180125 
 },
 
-{ "title": "Tyrieks Yard Sale",
+{ "title": " Tyriek's Yard Sale",
   "address":{
     "lat": 40.864978,
     "lon": -73.899493,
@@ -43,10 +47,12 @@
         "chairs",
 	    "tables",
 	    "shoes"
-        ]  
+        ],
+ "date": "26 January 2018",
+ "Jdate": 20180126 
 },
 
-{ "title": "Annabelles Yard Sale",
+{ "title": " Annabelle's Yard Sale",
   "address":{
     "lat": 40.881722,
     "lon": -73.907561,
@@ -59,5 +65,7 @@
         "chairs",
 	    "pants",
 	    "shoes"
-        ]  
+        ],
+ "date": "24 January 2018",
+ "Jdate": 20180127 
 }]

@@ -1,22 +1,77 @@
+body{
+    background-color: white;
+}
+
+#search{
+    display: block;
+/*    margin-top: 100px;*/
+    padding-top: 50px; 
+    padding-bottom: 10px;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+}
+
+#searchForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#userItem{
+    order: 0;
+    width: 75%;
+    height: 30px;
+    margin-bottom: 20px;
+    font-size: 10pt;
+}
+
+#sbtn{
+    order: 1;
+    font-size: 16pt;
+}
+
+#hbtn{
+    float: left;
+     font-size: 11pt;
+}
+
+#context,
+#allResults{
+    display: block;
+    width: 90%;
+    margin: auto;    
+}
+
+
 div.YardSale{
-    background-color: gainsboro;
+    box-sizing: border-box;
+    border-radius: 1%;
+    padding: 2% 5%;
+    background-color: mintcream;
+    border: 5px solid #C8E5B7;
     width:100%;
-    border-bottom: 5px solid black;
+    margin-top: 20px;
 }
 
 p.Title{
-    color: blue;
+    color: darkgreen;
 }
 
-/*
-.YSimg{
+p.Date{
+    color: darkgreen;
+    float: right;
 }
-*/
+
+.YSimg{
+    border: 5px solid black;
+}
+
 
 p.Address{
-    color: blue;
+    color: darkgreen;
 }
 
 p.Items{
-    background-color: yellow;
+    color: darkgreen;
 }

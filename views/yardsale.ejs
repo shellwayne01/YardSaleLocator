@@ -1,23 +1,33 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title></title>
+        <title>Yard Sale Locator</title>
+        <link href="/home.css" rel="stylesheet" type="text/css">
     </head>
     
     <body>
 
         <!--Insert Google Maps API here-->
+        <div id="search">
+            <form id="searchForm" action="/yardsale/searchResults" method= "post">
+                <label id="lbl">Search for an item you wish you buy at a yard sale:</label>
+                <input type="text" id="userItem" name="userInput"/>
+                <input type="submit" id="sbtn" name="searchBtn"/>
+            </form>
+         </div>
         
-        <form action="/yardsale/searchResults" method= "post">
-        <label>Enter an item you wish you buy at a yard sale.</label>
-        <input type="text" id="userItem" name="userInput"/>
-        <input type="submit" id="btn" name="searchBtn"/>
-        </form>
-       
-        
-        <!-- JSON data we can refer to is visible for now -->
+        <!--JSON data we can refer to is visible for now -->
         <p id="quote"><%= sales%></p>
+        
+        <div id="map">
+        </div>
+
+        <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhhpTLe6JUY_Ofagp_ePRMelZUrepiywQ&callback=initMap">
+        </script>
+      
     
+    <script src="/map.js"></script>
     </body>
     
 
