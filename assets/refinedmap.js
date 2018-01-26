@@ -1,19 +1,9 @@
-////Method 1: Retrieve markers from external JSON data. Still working on it too!
-//var fs = require('fs');
-//var file = fs.readFileSync("../relevantMarkers.json");
-//var refinedJSON = JSON.parse(file);
-//
-//var relevant = refinedJSON;
-//console.log("Second JS has now recieved the relevant data: " + relevant);
-//   
-
-relevant;
-alert("This is relevant data: " + relevant);
+relevant; //global variable from reader.js
+//alert("This is relevant data: " + relevant);
 
 //Retrieve Populated Map
       var map, infoWindow;
       function initMap() {
-        console.log(relevant);
         var uluru = {lat: 40.8733223, lng: -73.8963282};
           
         map = new google.maps.Map(document.getElementById('map'), {

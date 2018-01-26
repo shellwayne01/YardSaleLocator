@@ -10,7 +10,9 @@ app.use(bodyParser.json());
 //app.use('/assets',express.static('assets'));
 app.use(express.static('assets')); 
 
-results = []; //Global Variable
+results = []; //Global Variables
+ar = []; 
+
 var file = fs.readFileSync("yardsale.json");
 var data = JSON.parse(file);
 console.log(data);
@@ -89,6 +91,63 @@ app.get('/home', function(request, response){
     console.log("User searched for " + userInput + ".");
     console.log("Redirecting to find " + userInput + "...");
     response.redirect("/search/" + userInput );
+})
+
+//Retrieves results page for new yard sale via generator after search btn is clicked
+.post('/yardsale/newYardSale', function(request, response){
+
+
+
+    var titleYS = request.body.titleYS;
+    var streetYS = request.body.streetYS;
+    var cityYS = request.body.cityYS;
+    var stateYS = request.body.stateYS;
+    var zipYS = request.body.zipYS;
+    var latYS = request.body.latYS;
+    var lonYS = request.body.lonYS;
+    var dateYS = request.body.dateYS;
+    var timeYS = request.body.timeYS;
+    var itemsYS = request.body.itemsYS;
+
+    items = itemsYS.split(",");
+
+
+    var idV= { "title": titleYS,
+  "address":{
+    "lat": latYS,
+    "lon": lonYS,
+    "street": streetYS, 
+    "city": cityYS,
+    "state": stateYS, 
+    "zipCode": zipYS
+    },
+     "items":
+          items
+              
+    };
+
+    ar.push(idV);
+
+    var mainar = []; 
+    mainar.push(JSON.stringify(ar));
+
+    console.log(idV);
+
+   fs.writeFile("addYardsales.json", mainar, 'utf8', function(err){
+        if(err){
+            return console.log(err);
+        }
+    });
+
+    response.redirect("/yardsale/newYardSale");
+
+
+})
+
+//Retrieves results page with all data from new yard sale 
+.get('/yardsale/newYardSale', function(request, response){
+    response.render('newYardSale.ejs', {sales:JSON.stringify(data)});
+
 })
 
 
