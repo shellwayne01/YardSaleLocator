@@ -6,18 +6,16 @@
     </head>
     
     <body>
+        <div class="form-div">
+            <div id="search">
+                <form id="searchForm" action="/yardsale/searchResults" method= "post">
+                    <label id="lbl">Search for an item:</label>
+                    <input type="text" id="userItem" name="userInput"/>
+                    <input type="submit" id="sbtn" name="searchBtn"/>
+                </form>
+             </div>
+        </div>
 
-        <!--Insert Google Maps API here-->
-        <div id="search">
-            <form id="searchForm" action="/yardsale/searchResults" method= "post">
-                <label id="lbl">Search for an item you wish you buy at a yard sale:</label>
-                <input type="text" id="userItem" name="userInput"/>
-                <input type="submit" id="sbtn" name="searchBtn"/>
-            </form>
-         </div>
-        
-        <!--JSON data we can refer to is visible for now -->
-        <p id="quote"><%= sales%></p>
         
         <div id="map">
         </div>
@@ -26,8 +24,9 @@
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhhpTLe6JUY_Ofagp_ePRMelZUrepiywQ&callback=initMap">
         </script>
       
-    
-    <script src="/map.js"></script>
+    <script type='text/javascript' src="/map.js">
+    </script>
+        
     </body>
     
 
