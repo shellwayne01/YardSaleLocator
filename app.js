@@ -126,7 +126,7 @@ app.get('/home', function(request, response){
 
     console.log(idV);
 
-   fs.writeFile("people.json", mainar, 'utf8', function(err){
+   fs.writeFile("yardsale.json", mainar, 'utf8', function(err){
         if(err){
             return console.log(err);
         }
