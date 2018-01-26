@@ -11,14 +11,14 @@
         <!--Insert Google Maps API here-->
         <div class="form-div">
             <div id="YSinfo">
-            <form id="searchForm" action="/yardsale/searchResults" method= "post">
+            <form id="searchForm" action="/yardsale/newYardSale" method= "post">
 
                 <label class="form-title">Submit Yard Sale</label>
 
-                <input type="text" id="saveIS" name="saveYSInput" placeholder="Title" />
-                <input type="text" id="streetYS" name="streetYSInput" placeholder="Street" />
-                <input type="text" id="cityYS" name="cityYSInput" placeholder="City" />
-                <select>
+                <input type="text" id="titleYS" name="saveYSInput" placeholder="Title" required="required" />
+                <input type="text" id="streetYS" name="streetYSInput" placeholder="Street" required="required" />
+                <input type="text" id="cityYS" name="cityYSInput" placeholder="City" required="required" />
+                <select required="required" id="stateYS">
                     <option value="AL">Alabama</option>
                     <option value="AK">Alaska</option>
                     <option value="AZ">Arizona</option>
@@ -72,23 +72,60 @@
                     <option value="WY">Wyoming</option>
                 </select>
 
-                <input type="text" id="zipYS" name="zipYSInput" placeholder="ZIP" />
-                <input type="text" id="latYS" name="latYSInput" placeholder="Latitude" />
-                <input type="text" id="lonYS" name="lonYSInput" placeholder="Longitude" />
+                <input type="text" id="zipYS" name="zipYSInput" placeholder="ZIP" required="required" />
+                <input type="text" id="latYS" name="latYSInput" placeholder="Latitude" required="required" />
+                <input type="text" id="lonYS" name="lonYSInput" placeholder="Longitude" required="required" />
 
                 <button class="button" id="nextYSBtn" type="button">Next</button>
-
-                <input type="submit" id="sYSbtn" name="saveYSBtn"/>
-            </form>
+          
             </div>
+
+
+                <div id="YSitems">
+                    <label>Select date</label> <br>
+                    <input id="dateYS" type="date" required="required"> <br>
+                    <label>Select time</label> <br>
+                    <input id="timeYS" type="time" required="required">
+
+                    <label>Enter items separated by commas (,) </label> <br>
+                    <input type="text" id="itemsYS" name="itemsYSInput" placeholder="Items" required="required" /> 
+
+                    <button class="button" id="backYSBtn" type="button">Back</button>
+                    <input type="submit" id="sYSbtn" name="saveYSBtn"/>
+
+                </div>
+
          </div>
-        
+          </form>
         <!--JSON data we can refer to is visible for now -->
       <!--   <p id="quote"><%= sales%></p> -->
         
         <div id="map">
         </div>
     </body>
+
+    <script type="text/javascript">
+        
+        $( document ).ready(function() {
+            
+            $("#YSitems").hide();
+
+            $("#nextYSBtn").click(function(){
+                $("#YSinfo").hide();
+                $("#YSitems").show();
+            });
+
+            $("#backYSBtn").click(function(){
+                $("#YSinfo").show();
+                $("#YSitems").hide();
+            });
+
+        });
+
+
+    </script>
+
+    <script type="text/javascript" src="app.js"></script>
     
-    <script type="text/javascript" src="../global.js"></script>
+   <!--  <script type="text/javascript" src="../global.js"></script> -->
 </html>

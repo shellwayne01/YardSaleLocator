@@ -5,6 +5,8 @@ var bodyParser = require('body-parser');
 
 console.log("sever is starting");
 app.use(express.static('/views')); 
+app.use(express.static('/js')); 
+app.use(express.static('/images')); 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 //app.use('/assets',express.static('assets'));
@@ -83,16 +85,86 @@ app.get('/home', function(request, response){
 })
 
 
+
+
 //Retrieves results page for new yard sale via generator after search btn is clicked
 .post('/yardsale/newYardSale', function(request, response){
-    var userInput = request.body.userInput;
-    console.log(userInput);
-    console.log("User searched for " + userInput + ".");
-    console.log("Redirecting");
-    response.redirect("/search/" + userInput );
+
+    var titleYS = document.getElementById('titleYS').value;
+    var streetYS = document.getElementById('streetYS').value;
+    var cityYS = document.getElementById('cityYS').value;
+    var stateYS = document.getElementById('stateYS').value;
+    var zipYS = document.getElementById('zipYS').value;
+    var latYS = document.getElementById('latYS').value;
+    var lonYS = document.getElementById('lonYS').value;
+    var dateYS = document.getElementById('dateYS').value;
+    var timeYS = document.getElementById('timeYS').value;
+    var itemsYS = document.getElementById('itemsYS').value;
+
+
+    // var userInput = request.body.userInput;
+    // console.log(userInput);
+    // console.log("User searched for " + userInput + ".");
+    // console.log("Redirecting");
+    // response.redirect("/search/" + userInput );
+
+    // var idV= {
+    // "name" : "Melida",
+    // "age" : 21,
+    // "gender" : "male",
+    // "id" : 2
+    // };
+
+ //    "title": "Marias Yard Sale",
+ //  "address":{
+ //    "lat": 40.872994,
+ //    "lon": -73.902004,
+ //    "street": "2823 Sedgwick Ave", 
+ //    "city": "Bronx",
+ //    "state": "NY", 
+ //    "zipCode": 10468
+ //    },
+ // "items":[
+ //        "chairs",
+ //        "pants",
+ //        "lamp"
+ //        ]  
+
+
+    var idV= { "title": titleYS,
+  "address":{
+    "lat": latYS,
+    "lon": lonYS,
+    "street": streetYS, 
+    "city": cityYS,
+    "state": stateYS, 
+    "zipCode": zipYS
+    },
+     "items":[
+          itemsYS
+            ]  
+    };
+
+
+    console.log(idV);
+
+   fs.appendFile("people.json", JSON.stringify(idV), 'utf8', function(err){
+        if(err){
+            return console.log(err);
+        }
+    });
+
+    response.redirect("/yardsale/newYardSale");
+
+
 })
 
 //Retrieves results page with all data from new yard sale 
 .get('/yardsale/newYardSale', function(request, response){
     response.render('newYardSale.ejs', {sales:JSON.stringify(data)});
+
 })
+
+
+
+

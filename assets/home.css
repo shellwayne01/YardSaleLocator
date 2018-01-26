@@ -20,13 +20,18 @@ p {
     background-color: transparent;
 }
 
+label {
+  padding-top: 2px;
+  padding-bottom: 5px;
+}
+
 .form-title {
     font-size: 26px;
     color: #ed4048;
     padding-bottom: 10px;
 }
 
-input[type=text], select {
+input[type=text], select, input[type=date], input[type=time] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -119,4 +124,5 @@ input[type=submit]:hover {
          /*opacity: 0.02;*/
          padding: 10px;
          background-color:rgba(255,255,255,0.2);
-      }
+  }
+
