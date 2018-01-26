@@ -15,10 +15,10 @@
 
                 <label class="form-title">Submit Yard Sale</label>
 
-                <input type="text" id="titleYS" name="saveYSInput" placeholder="Title" required="required" />
-                <input type="text" id="streetYS" name="streetYSInput" placeholder="Street" required="required" />
-                <input type="text" id="cityYS" name="cityYSInput" placeholder="City" required="required" />
-                <select required="required" id="stateYS">
+                <input type="text" name="titleYS" placeholder="Title" required="required" />
+                <input type="text" name="streetYS"  placeholder="Street" required="required" />
+                <input type="text" name="cityYS" placeholder="City" required="required" />
+                <select required="required" name="stateYS">
                     <option value="AL">Alabama</option>
                     <option value="AK">Alaska</option>
                     <option value="AZ">Arizona</option>
@@ -72,9 +72,9 @@
                     <option value="WY">Wyoming</option>
                 </select>
 
-                <input type="text" id="zipYS" name="zipYSInput" placeholder="ZIP" required="required" />
-                <input type="text" id="latYS" name="latYSInput" placeholder="Latitude" required="required" />
-                <input type="text" id="lonYS" name="lonYSInput" placeholder="Longitude" required="required" />
+                <input type="text" name="zipYS" placeholder="ZIP" required="required" />
+                <input type="text" name="latYS" placeholder="Latitude" required="required" />
+                <input type="text" name="lonYS" placeholder="Longitude" required="required" />
 
                 <button class="button" id="nextYSBtn" type="button">Next</button>
           
@@ -83,12 +83,12 @@
 
                 <div id="YSitems">
                     <label>Select date</label> <br>
-                    <input id="dateYS" type="date" required="required"> <br>
+                    <input name="dateYS" type="date" required="required"> <br>
                     <label>Select time</label> <br>
-                    <input id="timeYS" type="time" required="required">
+                    <input name="timeYS" type="time" required="required">
 
                     <label>Enter items separated by commas (,) </label> <br>
-                    <input type="text" id="itemsYS" name="itemsYSInput" placeholder="Items" required="required" /> 
+                    <input type="text" name="itemsYS" placeholder="Items" required="required" /> 
 
                     <button class="button" id="backYSBtn" type="button">Back</button>
                     <input type="submit" id="sYSbtn" name="saveYSBtn"/>
