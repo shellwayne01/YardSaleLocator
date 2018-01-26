@@ -39,12 +39,17 @@ function getYardSales(request, response){
     var relevantSoldItems = [];
     var relevantDates = [];
     
-    for(i=0; i<data.length; i++){
+for(i=0; i<data.length; i++){
         var YS = data[i];
         var title = YS.title;
         var address = YS.address.street + " " + YS.address.city + ", " + YS.address.state;
         var itemsSold = YS.items;
         var date = YS.date;
+//        var coordinates = [YS.address.lat,YS.address.lon];
+        var coordinates = {
+            "lat": YS.address.lat,
+            "lon": YS.address.lon
+        }
         
         for(x=0; x<itemsSold.length; x++){
             if( (itemsSold[x]) == requestedItem ){
@@ -53,12 +58,18 @@ function getYardSales(request, response){
                 relevantAddresses.push(address);
                 relevantSoldItems.push(itemsSold);
                 relevantDates.push(date);
+                relevantCoordinates.push(coordinates);
             }
         }
     }
-
-    console.log(relevantSoldItems);
-
+    //Creates JSON file with relevant coordinates
+    results = JSON.stringify(relevantCoordinates);
+    
+    fs.writeFile('relevantMarkers.json', results, (err) =>{
+        if (err) throw err;
+        console.log("Item found! Json file saved with yard sale coordinates: " + results);
+    });  
+    
     response.render('yardsaleResults.ejs', {sales: relevantTitles, addresses: relevantAddresses, 
                                             items: relevantSoldItems, dates: relevantDates});
 }

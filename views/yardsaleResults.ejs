@@ -2,40 +2,59 @@
 <html>
     <head>
         <title>Yard Sales</title>
-        <link href="/assets/results.css" rel="stylesheet" type="text/css">
+        <link href="/results.css" rel="stylesheet" type="text/css">
     </head>
     
     <body>
         
-        <!--Form-->
-        <form action="/yardsale/searchResults" method= "post">
-        <input type="text" id="userItem" name="userInput"/>
-        <input type="submit" id="btn" name="searchBtn" value="Search"/>
+        <div id="map">
+        </div>
+        
+        <div id="search">
+               <!--Home button-->
+        <form id="homeForm" action="/home" method= "GET">
+            <input type="submit" id="hbtn" name="searchBtn" value="Home"/>
         </form>
+            <!--Form-->
+            <form id="searchForm" action="/yardsale/searchResults" method="post">
+                <input type="text" id="userItem" name="userInput"/>
+                <input type="submit" id="sbtn" name="searchBtn" value="Search"/>
+            </form>
+            
+        </div>
         
-        <!--Home button-->
-        <form action="/home" method= "GET">
-        <input type="submit" id="btn" name="searchBtn" value="Home"/>
-        </form>
-        
-        <!--Yard Sales for searched item -->
-        <p>Desired item was <strong>found</strong> at the following yard sales: <%= sales%></p>
-        
+        <div id="context">
+            <!--Yard Sales for searched item -->
+            <p>Desired item was <strong>found</strong> at the following yard sales: <%= sales%>.</p>
+        </div>
         
         <!--Blueprint for results -->
-        
-        <% for(i=0; i< sales.length; i++){ %>
-        <div class="YardSale">
-            <p class="Title"> <%=sales[i]%>
-            </p>
-            <img class = "YSimg" src="https://img.thrfun.com/img/003/847/yard_sale_ts.jpg"/>
-            <p class="Address"> Address
-            </p>
-            <p class="Items"> Items
-            </p>
+        <div id="allResults">
+            <% for(i=0; i< sales.length; i++){ %>
+            <div class="YardSale">
+                <p class="Date"><%=dates[i]%>
+                </p>
+                <p class="Title"><%=sales[i]%>
+                </p>
+                <img class = "YSimg" src="https://img.thrfun.com/img/003/847/yard_sale_ts.jpg"/>
+                <p class="Address">Address: <%=addresses[i]%> 
+                </p>
+                 <p class="ItemsSold">Items sold at this location:</p>
+                <ul class="Items"><% for(x=0; x<items[i].length; x++){ %>
+                    <li><%=items[i][x]%></li>
+                    <% } %>
+                </ul>
+            </div>
+            <% } %>
         </div>
-        <% } %>
         
+        
+
+        <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhhpTLe6JUY_Ofagp_ePRMelZUrepiywQ&callback=initMap">
+        </script>
+    
+    <script type='text/javascript' src="/refinedmap.js"></script>
     </body>
     
 </html>

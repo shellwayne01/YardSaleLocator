@@ -1,46 +1,32 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>Yard Sale Webapp</title>
-
-    <link href="/css/style.css" rel="stylesheet" type="text/css">
-
+        <title>Yard Sale Locator</title>
+        <link href="/home.css" rel="stylesheet" type="text/css">
     </head>
     
     <body>
-           <div id="map"></div>
-
-        <!--Insert Google Maps API here-->
         <div class="form-div">
-            <form action="/yardsale/searchResults" method= "post">
-            <label>Enter an item you wish you buy at a yard sale.</label>
-            <input type="text" id="userItem" name="userInput"/>
-            <input type="submit" id="btn" name="searchBtn"/>
-            </form>
+            <div id="search">
+                <form id="searchForm" action="/yardsale/searchResults" method= "post">
+                    <label id="lbl">Search for an item:</label>
+                    <input type="text" id="userItem" name="userInput"/>
+                    <input type="submit" id="sbtn" name="searchBtn"/>
+                </form>
+             </div>
         </div>
 
-        <button id="get-data">Get JSON data</button>
-        <div>aqui</div>
-       
         
-        <!-- JSON data we can refer to is visible for now -->
-        <p id="quote"><%=sales%></p>
+        <div id="map">
+        </div>
 
-
-
-    <!--  // GOOGLE MAPS -->
-   <!--  <script type="text/javascript" src="yardsale.json"></script> -->
-    <script type="text/javascript" src="/js/global.js"> </script> 
-
-   <!--   END GOOGLE MAPS -->
-
-  <!--  ADDING JQUERY -->
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhhpTLe6JUY_Ofagp_ePRMelZUrepiywQ&callback=initMap">
+        <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhhpTLe6JUY_Ofagp_ePRMelZUrepiywQ&callback=initMap">
+        </script>
+      
+    <script type='text/javascript' src="/map.js">
     </script>
-    
+        
     </body>
     
 
