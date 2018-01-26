@@ -1,11 +1,15 @@
-//Method 1: Retrieve markers from external JSON data. Still working on it too!
-var fs = require('fs');
-var file = fs.readFileSync("../relevantMarkers.json");
-var refinedJSON = JSON.parse(file);
+////Method 1: Retrieve markers from external JSON data. Still working on it too!
+//var fs = require('fs');
+//var file = fs.readFileSync("../relevantMarkers.json");
+//var refinedJSON = JSON.parse(file);
+//
+//var relevant = refinedJSON;
+//console.log("Second JS has now recieved the relevant data: " + relevant);
+//   
 
-var relevant = refinedJSON;
-console.log("Second JS has now recieved the relevant data: " + relevant);
-    
+relevant;
+alert("This is relevant data: " + relevant);
+
 //Retrieve Populated Map
       var map, infoWindow;
       function initMap() {
@@ -57,7 +61,7 @@ console.log("Second JS has now recieved the relevant data: " + relevant);
         for (var i = 0; i < relevant.length; i++) {
           var yardSale = relevant[i];
           var marker = new google.maps.Marker({
-            position: {lat: yardSale[0], lng: yardSale[1]},
+            position: {lat: yardSale.lat, lng: yardSale.lon},
             map: map,
 //            title: yardSale[0],
           });
