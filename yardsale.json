@@ -10,6 +10,7 @@
  "items":[
         "chairs",
 	    "pants",
+        "desks",
 	    "lamp"
         ],
   "date": "24 January 2018",
@@ -46,6 +47,9 @@
  "items":[
         "chairs",
 	    "tables",
+        "pens",
+        "records",
+        "buttons",
 	    "shoes"
         ],
  "date": "26 January 2018",

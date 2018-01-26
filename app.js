@@ -3,14 +3,14 @@ var app = express();
 var fs = require('fs');
 var bodyParser = require('body-parser'); 
 
-console.log("sever is starting");
+console.log("server is starting");
 app.use(express.static('/views')); 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 //app.use('/assets',express.static('assets'));
 app.use(express.static('assets')); 
 
-var results = [];
+results = []; //Global Variable
 var file = fs.readFileSync("yardsale.json");
 var data = JSON.parse(file);
 console.log(data);
@@ -18,8 +18,7 @@ console.log(data);
 var server = app.listen(3000, listening);
 
 function listening(){
-    console.log("listening");
-    
+    console.log("listening");  
 }
 
 //Generates relevant yard sale results
@@ -27,13 +26,14 @@ app.get('/search/:item', getYardSales);
 
 function getYardSales(request, response){
     var requestedItem = request.params.item;
-    console.log(requestedItem);
+    console.log("Item requested was: "+requestedItem+ ".");
     
     var relevantYS = [];
     var relevantTitles = [];
     var relevantAddresses = [];
     var relevantSoldItems = [];
     var relevantDates = [];
+    var relevantCoordinates =[];
     
     for(i=0; i<data.length; i++){
         var YS = data[i];
@@ -41,6 +41,11 @@ function getYardSales(request, response){
         var address = YS.address.street + " " + YS.address.city + ", " + YS.address.state;
         var itemsSold = YS.items;
         var date = YS.date;
+//        var coordinates = [YS.address.lat,YS.address.lon];
+        var coordinates = {
+            "lat": YS.address.lat,
+            "lon": YS.address.lon
+        }
         
         for(x=0; x<itemsSold.length; x++){
             if( (itemsSold[x]) == requestedItem ){
@@ -49,16 +54,21 @@ function getYardSales(request, response){
                 relevantAddresses.push(address);
                 relevantSoldItems.push(itemsSold);
                 relevantDates.push(date);
+                relevantCoordinates.push(coordinates);
             }
         }
     }
-
-    console.log(relevantSoldItems);
-
+    //Creates JSON file with relevant coordinates
+    results = JSON.stringify(relevantCoordinates);
+    
+    fs.writeFile('relevantMarkers.json', results, (err) =>{
+        if (err) throw err;
+        console.log("Item found! Json file saved with yard sale coordinates: " + results);
+    });  
+    
     response.render('yardsaleResults.ejs', {sales: relevantTitles, addresses: relevantAddresses, 
                                             items: relevantSoldItems, dates: relevantDates});
 }
-
 
 //Retrieves home page
 app.get('/home', function(request, response){
@@ -76,9 +86,9 @@ app.get('/home', function(request, response){
 //Retrieves results page for user via generator after search btn is clicked
 .post('/yardsale/searchResults', function(request, response){
     var userInput = request.body.userInput;
-    console.log(userInput);
     console.log("User searched for " + userInput + ".");
-    console.log("Redirecting");
+    console.log("Redirecting to find " + userInput + "...");
     response.redirect("/search/" + userInput );
 })
+
 

@@ -1,118 +1,15 @@
-// Note: This example requires that you consent to location sharing when
-      // prompted by your browser. If you see the error "The Geolocation service
-      // failed.", it means you probably did not give permission for the browser to
-      // locate you.
+//Method 1: Retrieve markers from external JSON data. Still working on it too!
+var fs = require('fs');
+var file = fs.readFileSync("../relevantMarkers.json");
+var refinedJSON = JSON.parse(file);
 
-//Method 1: Retrieve markers for all sales from external JSON data. Still working on it!
-//var fs = require('fs');
-//var file = fs.readFileSync("../yardsale.json");
-//var originalJSON = JSON.parse(file);
-//var data = originalJSON;
-//console.log("this is the original data: " + data );
-
-//Method 2: Retrieve markers from hardcoded data. It works and shows markers.
-var data = [{ "title": " Maria's Yard Sale",
-  "address":{
-    "lat": 40.872994,
-    "lon": -73.902004,
-    "street": "2823 Sedgwick Ave", 
-    "city": "Bronx",
-    "state": "NY", 
-    "zipCode": 10468
-    },
- "items":[
-        "chairs",
-	    "pants",
-	    "lamp"
-        ],
-  "date": "24 January 2018",
-  "Jdate": 20180124 
-},
-
-{ "title": " Joey's Yard Sale",
-  "address":{
-    "lat": 40.876466,
-    "lon": -73.88679,
-    "street": "Villa Ave", 
-    "city": "Bronx",
-    "state": "NY", 
-    "zipCode": 10468
-    },
- "items":[
-        "chairs",
-	    "shirts",
-	    "buttons"
-        ],
- "date": "25 January 2018",
- "Jdate": 20180125 
-},
-
-{ "title": " Tyriek's Yard Sale",
-  "address":{
-    "lat": 40.864978,
-    "lon": -73.899493,
-    "street": "Jerome Ave", 
-    "city": "Bronx",
-    "state": "NY", 
-    "zipCode": 10468
-    },
- "items":[
-        "chairs",
-	    "tables",
-	    "shoes"
-        ],
- "date": "26 January 2018",
- "Jdate": 20180126 
-},
-
-{ "title": " Annabelle's Yard Sale",
-  "address":{
-    "lat": 40.881722,
-    "lon": -73.907561,
-    "street": "Tibbett Ave", 
-    "city": "Bronx",
-    "state": "NY", 
-    "zipCode": 10463
-    },
- "items":[
-        "chairs",
-	    "pants",
-	    "shoes"
-        ],
- "date": "24 January 2018",
- "Jdate": 20180127 
-}];
-
-
-//Get JSON data into JavaScript object
-var allTitles = []; 
-var allAddresses = [];
-var allLat = [];
-var allLon = [];
-var yardSales = [];
-              
-for(i=0; i<data.length; i++){
-    var YS = data[i];
-    var title = YS.title;
-    var address = YS.address.street + " " + YS.address.city + ", " + YS.address.state;
-    var lat = parseFloat(YS.address.lat);
-    var lon = YS.address.lon;
-    var ys = [address, lat , lon, 4];
- 
-    allTitles.push(title);
-    allAddresses.push(address);
-    allLat.push(lat);
-    allLon.push(lon);
-    yardSales.push(ys);
+var relevant = refinedJSON;
+console.log("Second JS has now recieved the relevant data: " + relevant);
     
-};
-
-console.log(yardSales);
-
-
 //Retrieve Populated Map
       var map, infoWindow;
       function initMap() {
+        console.log(relevant);
         var uluru = {lat: 40.8733223, lng: -73.8963282};
           
         map = new google.maps.Map(document.getElementById('map'), {
@@ -156,13 +53,13 @@ console.log(yardSales);
         var infowindow = new google.maps.InfoWindow({
           content: contentString
         });
- //Iterate throuhg the JavaScript object
-        for (var i = 0; i < yardSales.length; i++) {
-          var yardSale = yardSales[i];
+ //Iterate through the JavaScript object
+        for (var i = 0; i < relevant.length; i++) {
+          var yardSale = relevant[i];
           var marker = new google.maps.Marker({
-            position: {lat: yardSale[1], lng: yardSale[2]},
+            position: {lat: yardSale[0], lng: yardSale[1]},
             map: map,
-            title: yardSale[0],
+//            title: yardSale[0],
           });
           google.maps.event.addListener(marker, 'click', (function(marker, i) {
       return function() {
