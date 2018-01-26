@@ -2,123 +2,165 @@
       // prompted by your browser. If you see the error "The Geolocation service
       // failed.", it means you probably did not give permission for the browser to
       // locate you.
+//Having the fs here stops the map from being run.
 
-//Method 1: Retrieve markers for all sales from external JSON data. Still working on it!
+////Method 1: Retrieve markers for all sales from external JSON data. Still working on it!
+//alert("Before map loads ");
 //var fs = require('fs');
-//var file = fs.readFileSync("../yardsale.json");
+//yardSales = [];
+//alert("After map function ");
+//
+//
+//function getData(){
+//var file = fs.readFile('../yardsale.json', 'utf8');
 //var originalJSON = JSON.parse(file);
-//var data = originalJSON;
-//console.log("this is the original data: " + data );
-
-//Method 2: Retrieve markers from hardcoded data. It works and shows markers.
-var data = [{ "title": " Maria's Yard Sale",
-  "address":{
-    "lat": 40.872994,
-    "lon": -73.902004,
-    "street": "2823 Sedgwick Ave", 
-    "city": "Bronx",
-    "state": "NY", 
-    "zipCode": 10468
-    },
- "items":[
-        "chairs",
-	    "pants",
-	    "lamp"
-        ],
-  "date": "24 January 2018",
-  "Jdate": 20180124 
-},
-
-{ "title": " Joey's Yard Sale",
-  "address":{
-    "lat": 40.876466,
-    "lon": -73.88679,
-    "street": "Villa Ave", 
-    "city": "Bronx",
-    "state": "NY", 
-    "zipCode": 10468
-    },
- "items":[
-        "chairs",
-	    "shirts",
-	    "buttons"
-        ],
- "date": "25 January 2018",
- "Jdate": 20180125 
-},
-
-{ "title": " Tyriek's Yard Sale",
-  "address":{
-    "lat": 40.864978,
-    "lon": -73.899493,
-    "street": "Jerome Ave", 
-    "city": "Bronx",
-    "state": "NY", 
-    "zipCode": 10468
-    },
- "items":[
-        "chairs",
-	    "tables",
-	    "shoes"
-        ],
- "date": "26 January 2018",
- "Jdate": 20180126 
-},
-
-{ "title": " Annabelle's Yard Sale",
-  "address":{
-    "lat": 40.881722,
-    "lon": -73.907561,
-    "street": "Tibbett Ave", 
-    "city": "Bronx",
-    "state": "NY", 
-    "zipCode": 10463
-    },
- "items":[
-        "chairs",
-	    "pants",
-	    "shoes"
-        ],
- "date": "24 January 2018",
- "Jdate": 20180127 
-}];
+//var Odata = originalJSON; //data is currently an object
+//alert("Before map loads ");
+//
+////var Odata = require('../yardsale.json');
+//console.log("this is the original data: " + Odata );
+//
+////Get JSON data into JavaScript object
+//for(i=0; i<Odata.length;i++){
+//    var data = Odata[i];
+//    var address = String(data.address.street + " " + data.address.city + ", " + data.address.state);
+//    var lat = parseFloat(data.address.lat);
+//    var lon = parseFloat(data.address.lon);
+//    var ys = [address, lat , lon, 4];
+//    yardSales.push(ys);
+//}
+//
+//console.log(yardSales); 
+//}
 
 
-//Get JSON data into JavaScript object
-var allTitles = []; 
-var allAddresses = [];
-var allLat = [];
-var allLon = [];
-var yardSales = [];
-              
-for(i=0; i<data.length; i++){
-    var YS = data[i];
-    var title = YS.title;
-    var address = YS.address.street + " " + YS.address.city + ", " + YS.address.state;
-    var lat = parseFloat(YS.address.lat);
-    var lon = YS.address.lon;
-    var ys = [address, lat , lon, 4];
- 
-    allTitles.push(title);
-    allAddresses.push(address);
-    allLat.push(lat);
-    allLon.push(lon);
-    yardSales.push(ys);
-    
-};
+////Method 2: Retrieve markers from hardcoded data. It works and shows markers.
+//var data = [{ "title": " Maria's Yard Sale",
+//  "address":{
+//    "lat": 40.872994,
+//    "lon": -73.902004,
+//    "street": "2823 Sedgwick Ave", 
+//    "city": "Bronx",
+//    "state": "NY", 
+//    "zipCode": 10468
+//    },
+// "items":[
+//        "chairs",
+//	    "pants",
+//	    "lamp"
+//        ],
+//  "date": "24 January 2018",
+//  "Jdate": 20180124 
+//},
+//
+//{ "title": " Joey's Yard Sale",
+//  "address":{
+//    "lat": 40.876466,
+//    "lon": -73.88679,
+//    "street": "Villa Ave", 
+//    "city": "Bronx",
+//    "state": "NY", 
+//    "zipCode": 10468
+//    },
+// "items":[
+//        "chairs",
+//	    "shirts",
+//	    "buttons"
+//        ],
+// "date": "25 January 2018",
+// "Jdate": 20180125 
+//},
+//
+//{ "title": " Tyriek's Yard Sale",
+//  "address":{
+//    "lat": 40.864978,
+//    "lon": -73.899493,
+//    "street": "Jerome Ave", 
+//    "city": "Bronx",
+//    "state": "NY", 
+//    "zipCode": 10468
+//    },
+// "items":[
+//        "chairs",
+//	    "tables",
+//	    "shoes"
+//        ],
+// "date": "26 January 2018",
+// "Jdate": 20180126 
+//},
+//
+//{ "title": " Annabelle's Yard Sale",
+//  "address":{
+//    "lat": 40.881722,
+//    "lon": -73.907561,
+//    "street": "Tibbett Ave", 
+//    "city": "Bronx",
+//    "state": "NY", 
+//    "zipCode": 10463
+//    },
+// "items":[
+//        "chairs",
+//	    "pants",
+//	    "shoes"
+//        ],
+// "date": "24 January 2018",
+// "Jdate": 20180127 
+//}];
+//
+//
+////Get JSON data into JavaScript object
+//var allTitles = []; 
+//var allAddresses = [];
+//var allLat = [];
+//var allLon = [];
+//var yardSales = [];
+//              
+//for(i=0; i<data.length; i++){
+//    var YS = data[i];
+//    var title = YS.title;
+//    var address = YS.address.street + " " + YS.address.city + ", " + YS.address.state;
+//    var lat = parseFloat(YS.address.lat);
+//    var lon = YS.address.lon;
+//    var ys = [address, lat , lon, 4];
+// 
+//    allTitles.push(title);
+//    allAddresses.push(address);
+//    allLat.push(lat);
+//    allLon.push(lon);
+//    yardSales.push(ys);
+//    
+//};
+//
+//console.log(yardSales);
 
-console.log(yardSales);
+//if(yardSales1 == yardSales){
+//    console.log("They are equivalent");
+//    if(yardSales1 === yardSales){
+//        console.log("THEY ARE LITERALLY THE SAME THING");
+//    }
+//}
 
+//if(yardSales1[0][0] == yardSales[0][0]){
+//    console.log("They are equivalent");
+//    if(yardSales1 === yardSales){
+//        console.log("THEY ARE LITERALLY THE SAME THING");
+//    }
+//}
+
+yardSales;
+alert("First map: " + yardSales); //Works. Is getting data from reader.js
 
 //Retrieve Populated Map
       var map, infoWindow;
       function initMap() {
+        alert("First map is now loading ");
         var uluru = {lat: 40.8733223, lng: -73.8963282};
-          
         map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: 40.8733223, lng: -73.8963282},
           zoom: 14
         });
+        //alert("Cool! checking data...");
+        //alert("Cool " + yardSales[0][0]);
           
         //Method for adding markers #2
         //        var thegeo = {"type":"FeatureCollection","features":[{"type":"Feature","properties":{},"geometry":{"type":"Point","coordinates":[-73.89318466186523,40.88324745065955]}},{"type":"Feature","properties":{},"geometry":{"type":"Point","coordinates":[-73.90146732330322,40.87662815076682]}},{"type":"Feature","properties":{},"geometry":{"type":"Point","coordinates":[-73.89198303222656,40.87098175424642]}}]};
@@ -136,9 +178,9 @@ console.log(yardSales);
          var contentString = '<div id="content">'+
             '<div id="siteNotice">'+
             '</div>'+
-            '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
+            '<h1 id="firstHeading" class="firstHeading">Wendys</h1>'+
             '<div id="bodyContent">'+
-            '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
+            '<p><b>Wendys</b>, also referred to as <b>Wendys</b>, is a large ' +
             'sandstone rock formation in the southern part of the '+
             'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) '+
             'south west of the nearest large town, Alice Springs; 450&#160;km '+
@@ -204,6 +246,3 @@ console.log(yardSales);
                               'Error: Your browser doesn\'t support geolocation.');
         infoWindow.open(map);
       }
-
-
-
