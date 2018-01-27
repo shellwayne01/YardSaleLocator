@@ -1,0 +1,29 @@
+{
+  "name": "yardsalelocator",
+  "version": "1.0.0",
+  "description": "yard sale locator app",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "ejs": "^2.5.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shellwayne01/YardSaleLocator.git"
+  },
+  "keywords": [
+    "web",
+    "app"
+  ],
+  "author": "Melida Grullon and Yorranshell Wattson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shellwayne01/YardSaleLocator/issues"
+  },
+  "homepage": "https://github.com/shellwayne01/YardSaleLocator#readme"
+}
