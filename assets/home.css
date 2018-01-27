@@ -149,6 +149,9 @@ input[type=submit]:hover {
          background-color:rgba(255,255,255,0.2);
   }
 
+#backtohomeBtn a:hover{
+    text-decoration: none;
+}
 
 #backtohomeBtn {
     width: 100%;
@@ -165,9 +168,6 @@ input[type=submit]:hover {
     background-color: #45a049;
 }
 
-#backtohomeBtn a:hover{
-    text-decoration: none;
-}
 
 
 
