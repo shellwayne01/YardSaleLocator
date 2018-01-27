@@ -1,5 +1,7 @@
 # YardSaleLocator
-Provides upcoming yard sales for a desired item. Dummy data is stored in and read from a JSON file. Thus, searchable items are currently restricted to the following:
+Provides upcoming yard sales for a desired item. 
+
+Created using dummy data in JSON file. Searchable items are currently restricted to the following:
 
 - chairs
 - pants
