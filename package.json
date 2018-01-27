@@ -10,11 +10,12 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+  "start": "node app.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/shellwayne01/YardSaleLocator.git"
+    "url": "git+https://github.com/shellwayne01/YardSaleLocator.git"
   },
   "keywords": [
     "web",
