@@ -17,7 +17,7 @@ var file = fs.readFileSync("yardsale.json");
 var data = JSON.parse(file);
 console.log(data);
 
-var server = app.listen.(process.env.PORT || 5000);
+var server = app.listen(process.env.PORT || 5000);
 
 function listening(){
     console.log("listening");  
