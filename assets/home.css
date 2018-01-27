@@ -159,6 +159,7 @@ input[type=submit]:hover {
     border: none;
     border-radius: 4px;
     cursor: pointer;  
+    text-align: center;
 } 
 
 #backtohomeBtn:hover{
