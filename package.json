@@ -1,5 +1,6 @@
 {
   "name": "yardsalelocator",
+  "repository": "github:shellwayne01/YardSaleLocator",
   "version": "1.0.0",
   "description": "yard sale locator app",
   "main": "app.js",
