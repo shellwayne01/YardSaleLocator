@@ -1,8 +1,22 @@
 # YardSaleLocator
-Provides upcoming yard sales for desired items
+Provides upcoming yard sales for a desired item.
 
-## Note:
--Local host: 3000/home to start
+Created using dummy data in JSON file. Searchable items are currently restricted to the following:
+
+- chairs
+- pants
+- desks
+- lamp
+- shirts
+- buttons
+- tables
+- pens
+- records
+- shoes
+
+https://yardsalelocator.herokuapp.com/home
+
+
+## App Created Using:
 - EJS, JQuery, Node.js, HTML, CSS, JavaScript, Express
-- body-parser package and fs 
-
+- body-parser package and fs
