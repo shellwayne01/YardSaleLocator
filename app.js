@@ -49,6 +49,8 @@ function getYardSales(request, response){
             "lon": YS.address.lon
         }
         
+        
+        //Add relevant images for corresponding yard sales found
         for(x=0; x<itemsSold.length; x++){
             if( (itemsSold[x]) == requestedItem ){
                 relevantYS.push(YS);
